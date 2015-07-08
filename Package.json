@@ -1,0 +1,9 @@
+{
+  "name": "Tarefa 13 - Programar",
+  "main": "index.html",
+  "window":{
+  	"toolbar": false,
+  	"title": "Tarefa 13 - Programar",
+  	"max_width":800
+  }
+}

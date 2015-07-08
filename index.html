@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+	<link rel="stylesheet" href="lib/css/bootstrap.css">
+</head>
+<body>
+<div class="container col-md-6" ng-app="app">
+	<div class="jumbotron" ng-controller="mainController">
+		<div class="col-md-12">
+
+<!--Main-->
+<div class="text-center">
+	<h3>Qual sua data de nascimento?</h4>
+</div>
+<form ng-submit="calculate()">
+<div class="input-group">
+	<input type="date" class="form-control" ng-model="dt"/>
+	<span class="input-group-btn">	
+		<button class="btn btn-primary">Calcular</button>
+	</span>
+</div>
+</form>
+<div class="container" ng-show="invalidDate">
+	<h4>Data inválida!</h4>
+</div>
+<div class="container text-center" ng-show="showCalc">
+	<p>Dia do nascimento: {{birthWeekDay}}.</p>
+	<p>Ano bissexto? {{leapYear}}.</p>
+	<p ng-if="nextBirthdayIn > 1">Próximo aniversário em: {{nextBirthdayIn}} dias.</p>
+	<p ng-if="nextBirthdayIn == 1">Próximo aniversário em: {{nextBirthdayIn}} dia.</p>
+	<p ng-if="nextBirthdayIn == 0">Hoje é seu aniversário!</p>
+	<p>Dia da semana: {{nextBirthdayWeekDay}}.</p>
+	<div ng-show="atropelando">
+		<img src="lib/img/logo.png">
+	</div>
+</div>
+<!--/Main-->
+		</div>
+	</div>
+</div>
+<script src="lib/js/angular.min.js"></script>
+<script src="lib/js/ui-bootstrap-0.13.0.min.js"></script>
+<script src="lib/js/ui-bootstrap-tpls-0.13.0.min.js"></script>
+<script src="lib/js/moment.min.js"></script>
+<script type="text/javascript">
+	moment.locale('pt-BR');
+</script>
+<script src="app/app.js"></script>
+<script src="app/mainController.js"></script>
+</body>
+</html>
