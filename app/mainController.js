@@ -3,12 +3,14 @@ app
 		function($scope){
 			$scope.showCalc = false;
 			$scope.calculate = function (){
+				$scope.showCalc = false;	
+				$scope.invalidDate = false;
+
 				var date = moment($scope.dt);
-				if(!date.isValid()){
+				if(!date.isValid() || $scope.dt == undefined){
 					$scope.invalidDate = true;
 					return;
 				}
-				$scope.invalidDate = false;
 				//Dia da semana do nascimento
 				$scope.birthWeekDay = date.format('dddd');
 				//Ano bissexto?
